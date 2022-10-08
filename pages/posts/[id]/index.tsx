@@ -39,49 +39,57 @@ const IndexPage = () => {
   return (
     <div>
       <h1>{t('common:main.greeting')}</h1>
-      <h2>{post.title}</h2>
-      <h3>{post.body}</h3>
-      <div>
-        {post.comments?.map((item) => (
-          <div key={item.id}>
-            <p>{item.body}</p>
+      {post && (
+        <div>
+          <h2>{post.title}</h2>
+          <h3>{post.body}</h3>
+          <div>
+            {post.comments?.map((item) => (
+              <div key={item.id}>
+                <p>{item.body}</p>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      {commentsLoading ? (
-        <p>Loading...</p>
-      ) : (
-        <>
-          <button onClick={() => setOpenComment(!openComment)}>
-            {openComment ? 'cancel' : 'add comment'}
-          </button>
-          {openComment && (
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                if (comment.length === 0) return;
-                dispatch(addComment({ postId: +query.id, body: comment }));
-              }}
-            >
-              <input
-                value={comment}
-                onChange={({ target }) => setComment(target.value)}
-              />
-              <button type="submit">Publish</button>
-            </form>
+          {commentsLoading ? (
+            <p>Loading...</p>
+          ) : (
+            <>
+              <button onClick={() => setOpenComment(!openComment)}>
+                {openComment ? 'cancel' : 'add comment'}
+              </button>
+              {openComment && (
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    if (comment.length === 0) return;
+                    dispatch(addComment({ postId: +query.id, body: comment }));
+                  }}
+                >
+                  <input
+                    value={comment}
+                    onChange={({ target }) => setComment(target.value)}
+                  />
+                  <button type="submit">Publish</button>
+                </form>
+              )}
+            </>
           )}
-        </>
+          <Link
+            href={uniteRoutes(
+              Routes.POSTS,
+              PostRoutes.UPDATE,
+              query.id as string,
+            )}
+          >
+            Update
+          </Link>
+          <button
+            onClick={() => deletePost(+query.id).then(() => push(Routes.POSTS))}
+          >
+            Delete post
+          </button>
+        </div>
       )}
-      <Link
-        href={uniteRoutes(Routes.POSTS, PostRoutes.UPDATE, query.id as string)}
-      >
-        Update
-      </Link>
-      <button
-        onClick={() => deletePost(+query.id).then(() => push(Routes.POSTS))}
-      >
-        Delete post
-      </button>
     </div>
   );
 };

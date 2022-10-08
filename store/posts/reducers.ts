@@ -30,6 +30,11 @@ const loading = createReducer(false, {
 const error = createReducer('', {
   [getAllPosts.pending.type]: () => '',
   [getAllPosts.rejected.type]: (_, { payload }) => payload,
+  [HYDRATE](_, { payload }: HydrateAction) {
+    const { error } = payload.posts;
+    
+return error || '';
+  },
 });
 
 export const postsReducer = combineReducers({

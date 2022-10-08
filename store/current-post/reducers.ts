@@ -41,6 +41,11 @@ const commentsLoading = createReducer(false, {
 const error = createReducer('', {
   [getPost.pending.type]: () => '',
   [getPost.rejected.type]: (_, { payload }) => payload,
+  [HYDRATE](_, { payload }: HydrateAction) {
+    const { error } = payload.posts;
+
+    return error || '';
+  },
 });
 
 export const currentPostReducer = combineReducers({
