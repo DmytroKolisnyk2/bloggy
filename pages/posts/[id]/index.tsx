@@ -35,8 +35,8 @@ const IndexPage = () => {
   const [openComment, setOpenComment] = useState(false);
   const [comment, setComment] = useState('');
   const { query, push } = useRouter();
-  
-return (
+
+  return (
     <div>
       <h1>{t('common:main.greeting')}</h1>
       <h2>{post.title}</h2>
