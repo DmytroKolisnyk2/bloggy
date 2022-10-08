@@ -1,28 +1,35 @@
 import { Routes } from '@enums';
 import { uniteRoutes } from '@helpers';
-import { createPost } from '@services';
-import type { NextPageContext } from 'next';
+import { useTypedSelector } from '@hooks';
+import { updatePost } from '@services';
+import { wrapper } from '@store';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { currentPostSelector, getPost } from 'store/current-post';
 
-export const getStaticProps = async (ctx: NextPageContext) => {
-  const { locale } = ctx;
+export const getServerSideProps = wrapper.getServerSideProps(
+  (store) => async (ctx) => {
+    const { locale, query } = ctx;
+    await store.dispatch(getPost(+query.id));
 
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ['common'])),
-    },
-  };
-};
+    return {
+      props: {
+        ...(await serverSideTranslations(locale, ['common'])),
+      },
+    };
+  },
+);
 
-const CreatePostPage = () => {
+const UpdatePostPage = () => {
   const { t } = useTranslation();
-  const [title, setTitle] = useState('');
-  const [body, setBody] = useState('');
+  const post = useTypedSelector(currentPostSelector);
+  const [title, setTitle] = useState(post.title);
+  const [body, setBody] = useState(post.body);
   const [loading, setLoading] = useState(false);
-  const { push } = useRouter();
+  const { query, push } = useRouter();
+
 
   return (
     <div>
@@ -32,7 +39,7 @@ const CreatePostPage = () => {
           e.preventDefault();
           if (title.length === 0 || body.length === 0) return;
           setLoading(true);
-          createPost({ title, body })
+          updatePost(+query.id, { title, body })
             .then((data) => push(uniteRoutes(Routes.POSTS, data.id)))
             .finally(() => setLoading(false));
         }}
@@ -51,4 +58,4 @@ const CreatePostPage = () => {
     </div>
   );
 };
-export default CreatePostPage;
+export default UpdatePostPage;

@@ -15,6 +15,6 @@ export const getStaticProps = async (ctx: NextPageContext) => {
 const PostsPage = () => {
   const { t } = useTranslation();
 
-  return <h1>{t('common:main.greeting')}</h1>;
+  return <div>{t('common:main.greeting')}</div>;
 };
 export default PostsPage;

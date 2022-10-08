@@ -3,4 +3,4 @@ export interface IComment {
   postId: number;
   body: string;
 }
-export type CommentDto = Omit<IComment, 'postId'>;
+export type CommentDto = Omit<IComment, 'id'>;
