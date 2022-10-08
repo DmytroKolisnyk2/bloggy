@@ -1,11 +1,13 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { createWrapper } from "next-redux-wrapper";
-import { postReducer } from "./post";
+import { configureStore } from '@reduxjs/toolkit';
+import { createWrapper } from 'next-redux-wrapper';
+import { currentPostReducer } from './current-post';
+import { postsReducer } from './posts';
 
 const makeStore = () =>
   configureStore({
     reducer: {
-      post: postReducer,
+      posts: postsReducer,
+      currentPost: currentPostReducer,
     },
   });
 

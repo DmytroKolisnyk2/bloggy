@@ -27,6 +27,7 @@
       "@services": ["services"],
       "@primitives": ["components/primitives"],
       "@providers": ["providers"],
+      "@utils": ["utils"],
       "@store": ["store"]
     }
   },

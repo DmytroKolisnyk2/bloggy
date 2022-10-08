@@ -1,4 +1,5 @@
 export enum ColorPalette {
-  BODY = "#262322",
-  DARK = "#F2E5D7",
+  DARK = '#262322',
+  BODY = '#F2E5D7',
+  WHITE = '#FFFFFF',
 }

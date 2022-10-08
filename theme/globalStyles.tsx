@@ -1,18 +1,10 @@
-import type { Theme } from "@emotion/react";
-import { css } from "@emotion/react";
-import emotionNormalize from "emotion-normalize";
+import type { Theme } from '@emotion/react';
+import { css } from '@emotion/react';
+import emotionNormalize from 'emotion-normalize';
 
 export const globalStyles = (theme: Theme) => css`
   * {
     box-sizing: border-box;
-  }
-
-  :root {
-    --grid-columns: 12;
-  }
-
-  #nprogress .spinner {
-    visibility: hidden !important;
   }
 
   #__next {
@@ -32,9 +24,9 @@ export const globalStyles = (theme: Theme) => css`
   body {
     height: 100%;
     overflow: overlay;
-    background: ${theme.colors.background};
+    background: ${theme.colors.body};
     color: ${theme.colors.text};
-    font-family: "Raleway", sans-serif;
+    font-family: 'Open Sans', sans-serif;
     @media (max-width: ${theme.breakpoints.xl}px) {
       font-size: 14px;
     }
@@ -54,13 +46,4 @@ export const globalStyles = (theme: Theme) => css`
   }
 
   ${emotionNormalize}
-`;
-
-export const resetButton = css`
-  border: none;
-  outline: none;
-  padding: 0;
-  margin: 0;
-  background: transparent;
-  font: inherit;
 `;

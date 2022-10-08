@@ -1,25 +1,25 @@
-import { ColorPalette } from "@enums";
-import { useRouter } from "next/router";
-import NextNProgress from "nextjs-progressbar";
-import { useEffect } from "react";
+import { ColorPalette } from '@enums';
+import { useRouter } from 'next/router';
+import NextNProgress from 'nextjs-progressbar';
+import { useEffect } from 'react';
 
 const PageLoader = () => {
   const router = useRouter();
 
   useEffect(() => {
     const handleStart = () => {
-      document.body.style.pointerEvents = "none";
+      document.body.style.pointerEvents = 'none';
     };
     const handleComplete = () => {
-      document.body.style.pointerEvents = "auto";
+      document.body.style.pointerEvents = 'auto';
     };
 
-    router.events.on("routeChangeStart", handleStart);
-    router.events.on("routeChangeComplete", handleComplete);
+    router.events.on('routeChangeStart', handleStart);
+    router.events.on('routeChangeComplete', handleComplete);
 
     return () => {
-      router.events.off("routeChangeStart", handleStart);
-      router.events.off("routeChangeComplete", handleComplete);
+      router.events.off('routeChangeStart', handleStart);
+      router.events.off('routeChangeComplete', handleComplete);
     };
   }, [router]);
 

@@ -1,7 +1,7 @@
 declare global {
-  import type { lightTheme } from "theme";
+  import type { lightTheme } from 'theme';
 
-  module "@emotion/react" {
+  module '@emotion/react' {
     type GlobalTheme = typeof lightTheme;
 
     // eslint-disable-next-line @typescript-eslint/no-empty-interface

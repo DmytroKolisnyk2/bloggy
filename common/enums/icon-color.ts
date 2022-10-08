@@ -1,4 +1,4 @@
-import { ColorPalette } from "./color-palette";
+import { ColorPalette } from './color-palette';
 
 export enum IconColor {
   BODY = ColorPalette.BODY,

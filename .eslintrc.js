@@ -33,7 +33,7 @@ module.exports = {
   plugins: ["@typescript-eslint", "import"],
   extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
   rules: {
-    "@typescript-eslint/explicit-function-return-type": "warn",
+    "@typescript-eslint/explicit-function-return-type": "off",
     "import/order": [
       "error",
       {
