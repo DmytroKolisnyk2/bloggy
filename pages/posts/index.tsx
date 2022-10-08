@@ -25,7 +25,8 @@ export const getServerSideProps = wrapper.getServerSideProps(
 const IndexPage = () => {
   const { t } = useTranslation();
   const posts = useTypedSelector(postsSelector);
-  return (
+  
+return (
     <div>
       <h1>{t('common:main.greeting')}</h1>
       {posts.map((item) => (

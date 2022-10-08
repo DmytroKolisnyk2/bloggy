@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { createComment, getPostById } from '@services';
-import { CommentDto } from '@types';
+import type { CommentDto } from '@types';
 import { CurrentPostActions } from './action-types';
 
 export const getPost = createAsyncThunk(

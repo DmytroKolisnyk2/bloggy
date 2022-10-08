@@ -30,7 +30,6 @@ const UpdatePostPage = () => {
   const [loading, setLoading] = useState(false);
   const { query, push } = useRouter();
 
-
   return (
     <div>
       <h1>{t('common:main.greeting')}</h1>
