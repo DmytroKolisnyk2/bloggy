@@ -1,5 +1,5 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_ROUTE;
+axios.defaults.baseURL = new URL(process.env.NEXT_PUBLIC_API_ROUTE).href;
 
 export { axios };
