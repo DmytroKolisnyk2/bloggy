@@ -6,6 +6,8 @@
 npm i
 ```
 
+#### Fill `.env` file in root directory according to `.example.env`
+
 ---
 
 ## Run app
