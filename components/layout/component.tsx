@@ -1,20 +1,22 @@
 import { getTitle } from '@helpers';
 import Head from 'next/head';
 import type { FC } from 'react';
-import React from 'react';
 import { Header } from '@components/header';
-import { Footer } from '@components/footer';
+import { Container } from '@components/primitives/container';
 import type { LayoutProps } from './types';
+// import { Footer } from '@components/footer';
 
 import * as styles from './styles';
 
 export const Layout: FC<LayoutProps> = ({ title, children }) => (
-  <React.Fragment>
+  <>
     <Head>
       <title>{getTitle(title)}</title>
     </Head>
     <Header />
-    <main css={styles.main}>{children}</main>
-    <Footer />
-  </React.Fragment>
+    <main css={styles.main}>
+      <Container>{children}</Container>
+    </main>
+    {/* <Footer /> */}
+  </>
 );

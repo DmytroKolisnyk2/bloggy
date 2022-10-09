@@ -34,7 +34,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "emotion.d.ts",
+    "theme.d.ts",
   ],
   "exclude": ["node_modules"]
 }

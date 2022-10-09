@@ -1,16 +1,13 @@
 import { Layout } from '@components/layout';
+import { PostForm } from '@components/post-form';
 import { Routes } from '@enums';
-import { uniteRoutes } from '@helpers';
 import { useTypedSelector } from '@hooks';
-import { Button, css } from '@mui/material';
-import { updatePost } from '@services';
 import { wrapper } from '@store';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useEffect } from 'react';
 import { currentPostSelector, getPost } from 'store/current-post';
-import type { ThemeType } from 'theme';
 
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) => async (ctx) => {
@@ -19,54 +16,25 @@ export const getServerSideProps = wrapper.getServerSideProps(
 
     return {
       props: {
-        ...(await serverSideTranslations(locale, ['common'])),
+        ...(await serverSideTranslations(locale, ['common', 'post'])),
       },
     };
   },
 );
 
-const btnStyles = (theme: ThemeType) => css`
-  background-color: ${theme.palette.error.dark};
-`;
-
 const UpdatePostPage = () => {
   const { t } = useTranslation();
-  const post = useTypedSelector(currentPostSelector);
-  const [title, setTitle] = useState(post.title);
-  const [body, setBody] = useState(post.body);
-  const [loading, setLoading] = useState(false);
-  const { query, push } = useRouter();
+  const { push } = useRouter();
+  const currentPost = useTypedSelector(currentPostSelector);
+
+  useEffect(() => {
+    !currentPost && push(Routes.NOT_FOUND);
+  }, []);
 
   return (
-    <Layout title="Update post">
-      <h1>{t('common:main.greeting')}</h1>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          if (title.length === 0 || body.length === 0) return;
-          setLoading(true);
-          updatePost(+query.id, { title, body })
-            .then((data) => push(uniteRoutes(Routes.POSTS, data.id)))
-            .finally(() => setLoading(false));
-        }}
-      >
-        <input
-          value={title}
-          onChange={({ target }) => setTitle(target.value)}
-          type="text"
-        />
-        <textarea
-          value={body}
-          onChange={({ target }) => setBody(target.value)}
-        ></textarea>
-        {loading ? (
-          <p>Loading...</p>
-        ) : (
-          <Button css={btnStyles} type="submit">
-            Publish
-          </Button>
-        )}
-      </form>
+    <Layout title={t('post:updatePost')}>
+      <h1>{t('post:updatePost')}</h1>
+      {currentPost && <PostForm update />}
     </Layout>
   );
 };

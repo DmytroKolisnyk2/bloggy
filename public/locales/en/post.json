@@ -1,0 +1,24 @@
+{
+  "createPost": "Create a post",
+  "publishPost": "Publish",
+  "updatePost": "Update post",
+  "save": "Save",
+  "placeholders": {
+    "title": "Enter the post title",
+    "body": "Enter the text of post"
+  },
+  "labels": {
+    "title": "Title of the post",
+    "body": "The text of the post"
+  },
+  "validation": {
+    "body": {
+      "long": "Post text is too long",
+      "small": "Post text is too short"
+    },
+    "title": {
+      "long": "The post name is too long",
+      "small": "The post name is too short"
+    }
+  }
+}

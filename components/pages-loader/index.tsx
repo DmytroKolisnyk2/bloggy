@@ -23,7 +23,13 @@ const PageLoader = () => {
     };
   }, [router]);
 
-  return <NextNProgress height={4} color={ColorPalette.DARK} />;
+  return (
+    <NextNProgress
+      options={{ showSpinner: false }}
+      height={4}
+      color={ColorPalette.BROWN}
+    />
+  );
 };
 
 export default PageLoader;

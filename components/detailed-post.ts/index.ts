@@ -1,0 +1,1 @@
+export { DetailedPost } from './component';
