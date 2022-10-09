@@ -26,7 +26,7 @@ export const globalStyles = (theme: Theme) => css`
     overflow: overlay;
     background: ${theme.colors.body};
     color: ${theme.colors.text};
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     @media (max-width: ${theme.breakpoints.xl}px) {
       font-size: 14px;
     }

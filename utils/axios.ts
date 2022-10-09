@@ -1,5 +1,5 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://bloggy-api.herokuapp.com/';
+axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_ROUTE;
 
 export { axios };

@@ -1,26 +1,17 @@
+import { useTypedSelector } from '@hooks';
+import { ThemeProvider as ThemeProviderMui } from '@mui/material';
 import type { ReactNode } from 'react';
-import { useState } from 'react';
-import { Global, ThemeProvider as ThemeProviderEmotion } from '@emotion/react';
-import { darkTheme, lightTheme, globalStyles } from 'theme';
+import { themeSelector } from 'store/theme';
+import { themes } from 'theme';
 
 type ThemeProviderProps = {
   children: ReactNode;
 };
 
-const colorSchemes = {
-  dark: darkTheme,
-  light: lightTheme,
-};
-
 const ThemeProvider = ({ children }: ThemeProviderProps) => {
-  const [theme] = useState(colorSchemes['light']);
+  const theme = useTypedSelector(themeSelector);
 
-  return (
-    <ThemeProviderEmotion theme={theme}>
-      <Global styles={globalStyles} />
-      {children}
-    </ThemeProviderEmotion>
-  );
+  return <ThemeProviderMui theme={themes[theme]}>{children}</ThemeProviderMui>;
 };
 
 export { ThemeProvider };

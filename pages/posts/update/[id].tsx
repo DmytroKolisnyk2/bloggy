@@ -1,6 +1,8 @@
+import { css } from '@emotion/react';
 import { Routes } from '@enums';
 import { uniteRoutes } from '@helpers';
 import { useTypedSelector } from '@hooks';
+import { Button } from '@mui/material';
 import { updatePost } from '@services';
 import { wrapper } from '@store';
 import { useTranslation } from 'next-i18next';
@@ -52,7 +54,18 @@ const UpdatePostPage = () => {
           value={body}
           onChange={({ target }) => setBody(target.value)}
         ></textarea>
-        {loading ? <p>Loading...</p> : <button type="submit">Publish</button>}
+        {loading ? (
+          <p>Loading...</p>
+        ) : (
+          <Button
+            css={css`
+              background: red;
+            `}
+            type="submit"
+          >
+            Publish
+          </Button>
+        )}
       </form>
     </div>
   );

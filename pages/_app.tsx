@@ -4,8 +4,8 @@ import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 import { wrapper } from 'store';
 import { ThemeProvider } from '@providers';
-import '../public/css/fontawesome.css';
 import dynamic from 'next/dynamic';
+import { CssBaseline } from '@mui/material';
 
 const PageLoaderDynamic = dynamic(() => import('@components/pages-loader'));
 
@@ -24,6 +24,7 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
     <ThemeProvider>
       {getLayout(<Component {...pageProps} />)}
       <PageLoaderDynamic />
+      <CssBaseline />
     </ThemeProvider>
   );
 };

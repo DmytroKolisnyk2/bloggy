@@ -1,6 +1,7 @@
 import { PostRoutes, Routes } from '@enums';
 import { uniteRoutes } from '@helpers';
 import { useAppDispatch, useTypedSelector } from '@hooks';
+import { Button } from '@mui/material';
 import { deletePost } from '@services';
 import { wrapper } from '@store';
 import { useTranslation } from 'next-i18next';
@@ -13,6 +14,7 @@ import {
   currentPostSelector,
 } from 'store/current-post';
 import { addComment, getPost } from 'store/current-post/actions';
+import { toggleTheme } from 'store/theme';
 
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) => async (ctx) => {
@@ -90,6 +92,7 @@ const IndexPage = () => {
           </button>
         </div>
       )}
+      <Button onClick={() => dispatch(toggleTheme())}>toggle</Button>
     </div>
   );
 };

@@ -32,8 +32,8 @@ const error = createReducer('', {
   [getAllPosts.rejected.type]: (_, { payload }) => payload,
   [HYDRATE](_, { payload }: HydrateAction) {
     const { error } = payload.posts;
-    
-return error || '';
+
+    return error || '';
   },
 });
 
