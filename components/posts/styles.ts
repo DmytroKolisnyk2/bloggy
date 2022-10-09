@@ -8,7 +8,7 @@ export const articleWrapper = ({ spaces, colors }: ThemeType) => css`
   border-radius: 10px;
 `;
 
-export const link = ({ spaces, colors }: ThemeType) => css`
+export const link = ({ spaces }: ThemeType) => css`
   margin-right: ${spaces.sm};
   text-decoration: none;
   cursor: pointer;
