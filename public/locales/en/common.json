@@ -1,7 +1,4 @@
 {
-  "main": {
-    "greeting": "Main page"
-  },
   "header": {
     "links": {
       "main": "Home",

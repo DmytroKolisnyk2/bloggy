@@ -1,5 +1,5 @@
 import { Layout } from '@components/layout';
-import { PostForm } from '@components/post-form';
+import { UpdatePost } from '@components/update-post';
 import { Routes } from '@enums';
 import { useTypedSelector } from '@hooks';
 import { wrapper } from '@store';
@@ -33,8 +33,7 @@ const UpdatePostPage = () => {
 
   return (
     <Layout title={t('post:updatePost')}>
-      <h1>{t('post:updatePost')}</h1>
-      {currentPost && <PostForm update />}
+      {currentPost && <UpdatePost />}
     </Layout>
   );
 };

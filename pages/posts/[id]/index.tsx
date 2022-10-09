@@ -1,4 +1,4 @@
-import { DetailedPost } from '@components/detailed-post.ts';
+import { DetailedPost } from '@components/detailed-post';
 import { Layout } from '@components/layout';
 import { Routes } from '@enums';
 import { useTypedSelector } from '@hooks';
@@ -15,7 +15,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
 
     return {
       props: {
-        ...(await serverSideTranslations(locale, ['common'])),
+        ...(await serverSideTranslations(locale, ['common', 'post'])),
       },
     };
   },

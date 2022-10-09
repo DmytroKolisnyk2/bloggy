@@ -1,8 +1,10 @@
 {
+  "postsHeadline": "All posts",
   "createPost": "Create a post",
   "publishPost": "Publish",
   "updatePost": "Update post",
   "save": "Save",
+  "deletePost": "Delete post",
   "placeholders": {
     "title": "Enter the post title",
     "body": "Enter the text of post"
@@ -20,5 +22,18 @@
       "long": "The post name is too long",
       "small": "The post name is too short"
     }
+  },
+  "comment": {
+    "comments": "Comments: ",
+    "publishComment": "Publish",
+    "cancelComment": "Cancel",
+    "addComment": "Add comment",
+    "placeholder": "Enter the comment",
+    "noComments": "No comments yet"
+  },
+  "posts": {
+    "headline": "All posts",
+    "goToPost": "To the post",
+    "noPost": "No posts yet"
   }
 }

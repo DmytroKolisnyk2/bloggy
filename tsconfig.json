@@ -35,6 +35,7 @@
     "**/*.ts",
     "**/*.tsx",
     "theme.d.ts",
+    "components/detailed-post"
   ],
   "exclude": ["node_modules"]
 }

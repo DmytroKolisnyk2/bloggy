@@ -8,7 +8,7 @@ export const getStaticProps = async (ctx: NextPageContext) => {
 
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['common'])),
+      ...(await serverSideTranslations(locale, ['common', 'home'])),
     },
   };
 };
@@ -17,8 +17,9 @@ const PostsPage = () => {
   const { t } = useTranslation();
 
   return (
-    <Layout title="Home">
-      <div>{t('common:main.greeting')}</div>
+    <Layout title={t('home:headline')}>
+      <h1>{t('home:headline')}</h1>
+      <p>{t('home:text')}</p>
     </Layout>
   );
 };

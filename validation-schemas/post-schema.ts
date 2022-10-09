@@ -1,11 +1,12 @@
+import { PostLengthValidation } from '@constants';
 import Joi from 'joi';
 import type { TFunction } from 'next-i18next';
 
 export const postSchema = (t: TFunction) =>
   Joi.object({
     title: Joi.string()
-      .min(2)
-      .max(30)
+      .min(PostLengthValidation.TITLE_MIN)
+      .max(PostLengthValidation.TITLE_MAX)
       .required()
       .messages({
         'string.max': t('post:validation.title.long'),
@@ -14,8 +15,8 @@ export const postSchema = (t: TFunction) =>
       }),
     body: Joi.string()
       .required()
-      .min(2)
-      .max(30)
+      .min(PostLengthValidation.BODY_MIN)
+      .max(PostLengthValidation.BODY_MAX)
       .messages({
         'string.max': t('post:validation.body.long'),
         'string.min': t('post:validation.body.small'),

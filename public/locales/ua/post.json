@@ -3,6 +3,8 @@
   "updatePost": "Оновити пост",
   "save": "Зберегти",
   "publishPost": "Опублікувати",
+  "publishComment": "Опублікувати",
+  "deletePost": "Видалити пост",
   "placeholders": {
     "title": "Введіть назву посту",
     "body": "Введіть текст посту"
@@ -20,5 +22,18 @@
       "long": "Назва посту занадто довга",
       "small": "Назва посту занадто коротка"
     }
+  },
+  "comment": {
+    "comments": "Коментарі: ",
+    "publishComment": "Опублікувати",
+    "cancelComment": "Скасувати",
+    "addComment": "Додати коментар",
+    "placeholder": "Введіть коментар",
+    "noComments": "Коментарів поки немає"
+  },
+  "posts": {
+    "headline": "Усі пости",
+    "goToPost": "До посту",
+    "noPost": "Немає постів"
   }
 }
