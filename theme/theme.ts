@@ -52,8 +52,8 @@ export const colors = {
 };
 
 const darkColors = {
-  body: ColorPalette.BODY,
-  text: ColorPalette.DARK,
+  body: ColorPalette.DARK,
+  text: ColorPalette.BODY,
   white: ColorPalette.WHITE,
   teal: ColorPalette.TEAL,
   brown: ColorPalette.BROWN,
