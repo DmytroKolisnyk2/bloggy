@@ -8,8 +8,29 @@ export const articleWrapper = ({ spaces, colors }: ThemeType) => css`
   border-radius: 10px;
 `;
 
-export const link = ({ spaces }: ThemeType) => css`
-  margin-right: ${spaces.sm};
+export const link = ({ spaces, fontWeights, transitions }: ThemeType) => css`
+  margin-left: ${spaces.sm};
   text-decoration: none;
+  font-weight: ${fontWeights.h5};
+  border-bottom: 2px solid transparent;
+  transition: ${transitions.duration.standard} linear;
   cursor: pointer;
+  &:hover {
+    border-color: inherit;
+  }
+`;
+export const commentWrapper = ({ spaces }: ThemeType) => css`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: fit-content;
+  margin-right: ${spaces.sm};
+  & span {
+    margin-right: ${spaces.xs};
+  }
+`;
+export const controlsWrapper = css`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 `;
