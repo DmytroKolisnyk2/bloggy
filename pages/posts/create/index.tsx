@@ -1,3 +1,4 @@
+import { Layout } from '@components/layout';
 import { Routes } from '@enums';
 import { uniteRoutes } from '@helpers';
 import { createPost } from '@services';
@@ -25,7 +26,7 @@ const CreatePostPage = () => {
   const { push } = useRouter();
 
   return (
-    <div>
+    <Layout title="Create post">
       <h1>{t('common:main.greeting')}</h1>
       <form
         onSubmit={(e) => {
@@ -48,7 +49,7 @@ const CreatePostPage = () => {
         ></textarea>
         {loading ? <p>Loading...</p> : <button type="submit">Publish</button>}
       </form>
-    </div>
+    </Layout>
   );
 };
 export default CreatePostPage;

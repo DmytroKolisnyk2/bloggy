@@ -1,3 +1,4 @@
+import { Layout } from '@components/layout';
 import { PostRoutes, Routes } from '@enums';
 import { uniteRoutes } from '@helpers';
 import { useAppDispatch, useTypedSelector } from '@hooks';
@@ -39,7 +40,7 @@ const IndexPage = () => {
   const { query, push } = useRouter();
 
   return (
-    <div>
+    <Layout title={post?.title}>
       <h1>{t('common:main.greeting')}</h1>
       {post && (
         <div>
@@ -93,7 +94,7 @@ const IndexPage = () => {
         </div>
       )}
       <Button onClick={() => dispatch(toggleTheme())}>toggle</Button>
-    </div>
+    </Layout>
   );
 };
 export default IndexPage;

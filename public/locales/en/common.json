@@ -1,5 +1,12 @@
 {
   "main": {
     "greeting": "Main page"
+  },
+  "header": {
+    "links": {
+      "main": "Home",
+      "post": "Posts",
+      "createPost": "Create a post"
+    }
   }
 }

@@ -1,8 +1,8 @@
-import { css } from '@emotion/react';
+import { Layout } from '@components/layout';
 import { Routes } from '@enums';
 import { uniteRoutes } from '@helpers';
 import { useTypedSelector } from '@hooks';
-import { Button } from '@mui/material';
+import { Button, css } from '@mui/material';
 import { updatePost } from '@services';
 import { wrapper } from '@store';
 import { useTranslation } from 'next-i18next';
@@ -10,6 +10,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { currentPostSelector, getPost } from 'store/current-post';
+import type { ThemeType } from 'theme';
 
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) => async (ctx) => {
@@ -24,6 +25,10 @@ export const getServerSideProps = wrapper.getServerSideProps(
   },
 );
 
+const btnStyles = (theme: ThemeType) => css`
+  background-color: ${theme.palette.error.dark};
+`;
+
 const UpdatePostPage = () => {
   const { t } = useTranslation();
   const post = useTypedSelector(currentPostSelector);
@@ -33,7 +38,7 @@ const UpdatePostPage = () => {
   const { query, push } = useRouter();
 
   return (
-    <div>
+    <Layout title="Update post">
       <h1>{t('common:main.greeting')}</h1>
       <form
         onSubmit={(e) => {
@@ -57,17 +62,12 @@ const UpdatePostPage = () => {
         {loading ? (
           <p>Loading...</p>
         ) : (
-          <Button
-            css={css`
-              background: red;
-            `}
-            type="submit"
-          >
+          <Button css={btnStyles} type="submit">
             Publish
           </Button>
         )}
       </form>
-    </div>
+    </Layout>
   );
 };
 export default UpdatePostPage;

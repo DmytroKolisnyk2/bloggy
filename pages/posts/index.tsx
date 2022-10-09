@@ -1,3 +1,4 @@
+import { Layout } from '@components/layout';
 import { Routes } from '@enums';
 import { uniteRoutes } from '@helpers';
 import { useTypedSelector } from '@hooks';
@@ -27,7 +28,7 @@ const IndexPage = () => {
   const posts = useTypedSelector(postsSelector);
 
   return (
-    <div>
+    <Layout title="Posts">
       <h1>{t('common:main.greeting')}</h1>
       {posts.map((item) => (
         <div key={item.id}>
@@ -39,7 +40,7 @@ const IndexPage = () => {
           </div>
         </div>
       ))}
-    </div>
+    </Layout>
   );
 };
 export default IndexPage;

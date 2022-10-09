@@ -6,4 +6,5 @@ export enum Routes {
 
 export enum PostRoutes {
   UPDATE = '/update',
+  CREATE = '/create',
 }
