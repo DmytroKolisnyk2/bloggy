@@ -1,4 +1,4 @@
-// import { ColorPalette, Theme } from '@enums';
+import { Theme } from '@enums';
 import { createTheme } from '@mui/material';
 
 // const colors = {
